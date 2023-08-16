@@ -1,0 +1,17 @@
+BranchFullName
+BranchShortName
+BranchCode
+BranchEDRPOU
+BranchIPN
+VATStatusBranch
+VATPercentBranch
+LegaladdressBranch
+Postaddress Branch
+BankBranch
+MFIBranch
+AccountBranch
+TelephoneBranch
+EmailBranch
+BranchAgent
+BranchAgentPosition
+ActsOnBasisBranch
