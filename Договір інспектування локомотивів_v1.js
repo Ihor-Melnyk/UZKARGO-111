@@ -205,6 +205,23 @@ function setAmountDescription() {
   }
 }
 
+//Скрипт 6. Заповнення інформації про додаткового підписанта
+function setAdditionalSignatory() {
+  const attrOrgAgentSurname2 = EdocsApi.getAttributeValue("OrgAgentSurname2");
+  if (attrOrgAgentSurname2.value) {
+    const OrganizationId = EdocsApi.getAttributeValue("OrganizationId").value;
+    const data = EdocsApi.getContractorData(OrganizationId);
+    if (data) {
+      setValueAttr("OrgAgent2", data.authorisedPersons.find(x => x.fullName == EdocsApi.getAttributeValue("OrgAgentSurname2").text).nameGenitive);
+      setValueAttr("OrgAgentPosition2", data.authorisedPersons.find(x => x.fullName == EdocsApi.getAttributeValue("OrgAgentSurname2").text).positionGenitive);
+      setValueAttr("ActsOnBasisOrg2", data.authorisedPersons.find(x => x.fullName == EdocsApi.getAttributeValue("OrgAgentSurname2").text).actingUnderThe);
+    }
+  }
+}
+function onChangeOrgAgentSurname2() {
+  setAdditionalSignatory();
+}
+
 //Скрипт 7. Передача договору на підписання в зовнішню систему
 function setDataForESIGN() {
   debugger;
